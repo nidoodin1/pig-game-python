@@ -44,13 +44,13 @@ def roll_good(num):#rolld more then one add to temp points
 
 def hold():#cash out add temp points to points change turn
     if player == True:
-        print ("player 1 turn")
+        #print ("player 1 turn")
         #print(temp_point)
         point1.extend(temp_point)
         temp_point.clear()
         print(point1)
     elif player == False:
-        print ("player 2 turn")
+        #print ("player 2 turn")
         point2.extend(temp_point)
         temp_point.clear()
         print(point2)
