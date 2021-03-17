@@ -6,7 +6,7 @@ player = True #True = player 1 False = player 2
 point1 = [] #player 1 points
 point2 = [] #player 2 points
 temp_point = [] #ponints that can be lost
-to_win = 10 #how menny you need to win
+to_win = 30 #how menny you need to win
 
 def roll():#roll the dice random number 1-6
     global num
