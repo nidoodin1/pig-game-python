@@ -57,8 +57,13 @@ def see():#see how menny points
     print("player 1" , point1)
     print("player 2" , point2)
 
+def helpme():#get help
+    print("roll to roll dice\nhold to cash out\nsee to see the points")
+
+print("type help for help")
+print("player 1 turn")
 while True:#main loop
-    pick = input ("roll\nhold\nsee\n")#input
+    pick = input ("")#input
 
     if pick == "roll":#pick roll
         got = roll()
@@ -77,10 +82,13 @@ while True:#main loop
     elif pick == "see":#pick see
         see()
 
+    elif pick == "help":#pick help
+        helpme()
+
     else:#pick error try again
         print("input error")
 
-
+see()
 print("\n-----end of program-----\n") 
 
   
