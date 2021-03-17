@@ -61,8 +61,10 @@ def hold():#cash out add temp points to points change turn
 def win():# check if a player wins
     if sum(point1) > 10:
         print ("player 1 wins")
+        quit()
     if sum(point2) > 10:
         print ("player 2 wins")
+        quit()
 
 def swap():
     global player
