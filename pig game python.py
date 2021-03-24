@@ -58,7 +58,7 @@ def see():#see how menny points
     print("player 2" , point2)
 
 def helpme():#get help
-    print("roll to roll dice\nhold to cash out\nsee to see the points")
+    print("type roll to roll dice\ntype hold to cash out\ntype see to see the points")
 
 print("type help for help")
 print("player 1 turn")
