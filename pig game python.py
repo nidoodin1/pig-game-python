@@ -1,30 +1,32 @@
-#setup
-import random#for dice
+import random # For dice rolls
 
-num = 0 #empty number for math
-player = True #True = player 1 False = player 2
-point1 = [] #player 1 points
-point2 = [] #player 2 points
-temp_point = [] #ponints that can be lost
-to_win = 30 #how menny you need to win
+num = 0
+player = True # True = Player 1, False = Player 2
+point1 = [] # Points for Player 1
+point2 = [] # Points for Player 2
+temp_point = [] # Points that can be lost
+to_win = 30 # Points required to win
 
-def roll():#roll the dice random number 1-6
+def roll():
+    """ Rolls 6 sided dice """
     global num
-    num = random.randrange(1,6)
-    print (num)
+    num = random.randrange(1, 6)
     return num
 
-def roll_bad():#if you rolled a 1 swich player lose temp points
+def roll_bad():
+    """ Event for bad roll """
     global temp_point
-    print ("you fail")
+    print ("You rolled a 1, next player's turn")
     temp_point.clear()
     swap()
 
-def roll_good(num):#add roll to temp points and have anuther roll
+def roll_good(num):
+    """ Event for good roll """
     global temp_point   
     temp_point.append(num)
     
-def hold():#cash out and add temp points to true points temp points now empty
+def hold():
+    """ Cash out points into table """
     if player == True:
         point1.extend(temp_point)
         temp_point.clear()
@@ -34,59 +36,72 @@ def hold():#cash out and add temp points to true points temp points now empty
         temp_point.clear()
         print(point2)
 
-def win():# check if a player wins #end program hear
+def win():
+    """ Checks for win by either player """
     if sum(point1) > to_win:
-        print ("player 1 wins")
+        print("Player 1 wins")
         return True
     if sum(point2) > to_win:
-        print ("player 2 wins")
+        print("Player 2 wins")
         return True
 
-def swap():#chang turn
+def swap():
+    """ Swap player turn """
     global player  
     if player == True:
         player = False
         temp_point.clear()
-        print ("player 2 turn")
+        print ("Player 2's turn")
     else: #player == False:
         player = True
         temp_point.clear()
-        print ("player 1 turn")
+        print ("Player 1's turn")
 
-def see():#see how menny points
-    print("player 1" , point1)
-    print("player 2" , point2)
+def see():
+    """ Display number of points for both players """
+    print("Player 1 points:", point1)
+    print("Player 2 points:", point2)
 
-def helpme():#get help
-    print("type roll to roll dice\ntype hold to cash out\ntype see to see the points")
+def helpme():
+    """ Display help """
+    print("Type 'roll' to roll dice\nType 'hold' to cash out\nType 'see' to see the points")
 
-print("type help for help")
-print("player 1 turn")
-while True:#main loop
-    pick = input ("")#input
 
-    if pick == "roll":#pick roll
-        got = roll()
-        if got != 1:
-            roll_good(got)
+print("Type 'help' for help")
+print("Player 1's turn")
 
+# Main loop
+while True:
+    # Get player input
+    pick = input("> ")
+
+    # Roll picked
+    if pick == "roll":
+        result = roll()
+        print("You rolled:", result)
+        if result != 1:
+            roll_good(result)
         else:
             roll_bad()
             
-    elif pick == "hold":#pick hold
+    # Hold picked
+    elif pick == "hold":
         hold()
         if win() == True:
             break
         swap()
 
-    elif pick == "see":#pick see
+    # See picked
+    elif pick == "see":
         see()
 
-    elif pick == "help":#pick help
+    # Help picked
+    elif pick == "help":
         helpme()
 
-    else:#pick error try again
-        print("input error")
+    # Incorrect input
+    else:
+        print("Wrong input, type 'help' for commands")
 
 see()
 print("\n-----end of program-----\n") 
