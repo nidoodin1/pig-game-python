@@ -1,7 +1,6 @@
-
 import random  # For dice rolls
 import colored
-from colored import fg, attr, stylize
+from colored import stylize
 
 color = colored.fg("blue")
 num = 0
@@ -10,8 +9,6 @@ point1 = []  # Points for Player 1
 point2 = []  # Points for Player 2
 temp_point = []  # Points that can be lost
 to_win = 15  # Points required to win
-pink = colored.fg("hot_pink_3a")
-
 
 def roll():
     """ Rolls 6 sided dice """
@@ -39,11 +36,11 @@ def hold():
     if player == True:
         point1.extend(temp_point)
         temp_point.clear()
-        print(color + "", point1)
+        print(color, point1)
     elif player == False:
         point2.extend(temp_point)
         temp_point.clear()
-        print(color + "", point2)
+        print(color, point2)
 
 
 def win():
@@ -120,18 +117,4 @@ while True:
         print("Wrong input, type 'help' for commands")
 
 see()
-print(stylize("\n-----end of program-----\n", pink))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(stylize("\n-----end of program-----\n", colored.fg("hot_pink_3a")))
