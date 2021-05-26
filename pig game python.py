@@ -80,7 +80,7 @@ def helpme():
     print("Type 'roll' to roll dice\nType 'hold' to cash out\nType 'see' to see the points")
 
 
-print("Type 'help' for help")
+welcomeMessage = print("Welcome to the PIG game but in the Python world""\n""Type help to access the commands""\n""First player to get to 15 points win!!""\n" "Lets BEGIN!!!")
 print(stylize("Player 1's turn", color))
 
 # Main loop
