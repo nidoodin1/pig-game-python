@@ -80,41 +80,56 @@ def helpme():
     print("Type 'roll' to roll dice\nType 'hold' to cash out\nType 'see' to see the points")
 
 
-welcomeMessage = print("Welcome to the PIG game but in the Python world""\n""Type help to access the commands""\n""First player to get to 15 points win!!""\n" "Lets BEGIN!!!")
+print("Type 'help' for help")
 print(stylize("Player 1's turn", color))
 
 # Main loop
 while True:
-    # Get player input
-    pick = input("> ")
+    while True:
+        # Get player input
+        pick = input("> ")
 
-    # Roll picked
-    if pick == "roll":
-        result = roll()
-        print(color + "You rolled:", result)
-        if result != 1:
-            roll_good(result)
+        # Roll picked
+        if pick == "roll":
+            result = roll()
+            print(color + "You rolled:", result)
+            if result != 1:
+                roll_good(result)
+            else:
+                roll_bad()
+
+        # Hold picked
+        elif pick == "hold":
+            hold()
+            if win() == True:
+                break
+            swap()
+
+        # See picked
+        elif pick == "see":
+            see()
+
+        # Help picked
+        elif pick == "help":
+            helpme()
+
+        # Incorrect input
         else:
-            roll_bad()
+            print("Wrong input, type 'help' for commands")
 
-    # Hold picked
-    elif pick == "hold":
-        hold()
-        if win() == True:
-            break
-        swap()
+    see()
+    print(stylize("\n-----end of program-----\n", colored.fg("hot_pink_3a")))
 
-    # See picked
-    elif pick == "see":
-        see()
-
-    # Help picked
-    elif pick == "help":
-        helpme()
-
-    # Incorrect input
-    else:
-        print("Wrong input, type 'help' for commands")
-
-see()
-print(stylize("\n-----end of program-----\n", colored.fg("hot_pink_3a")))
+    # Rematch game
+    rematch = input("Rematch? (Y) for yes, (N) for no. ")
+    if rematch == "n" or rematch == "N" or rematch == "NO" or rematch == "no":
+        break
+    elif rematch == "y" or rematch == "Y" or rematch == "yes" or rematch == "YES":
+        color = colored.fg("blue")
+        num = 0
+        player = True  # True = Player 1, False = Player 2
+        point1 = []  # Points for Player 1
+        point2 = []  # Points for Player 2
+        temp_point = []  # Points that can be lost
+        to_win = 15  # Points required to win
+        continue
