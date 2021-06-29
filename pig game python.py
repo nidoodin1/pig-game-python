@@ -79,7 +79,16 @@ def helpme():
     """ Display help """
     print("Type 'roll' to roll dice\nType 'hold' to cash out\nType 'see' to see the points")
 
-
+print("Welcome to Pig-Game\n"
+          "Rules of The game :-\n"
+          " - If you get a 1, You lose your turn\n"
+          " - If you get a number between 2 - 6, You get points\n"
+          " - If your total points equals to 15, you win the game\n"
+      "\n"
+      "------How To Play--------\n"
+      "Type roll to roll the dice\n"
+      "Type hold to cash out\n"
+      "Type see to see both opponent and your points\n")
 print("Type 'help' for help")
 print(stylize("Player 1's turn", color))
 
